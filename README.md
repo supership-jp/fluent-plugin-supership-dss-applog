@@ -22,7 +22,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Filter Plugin
+
+```
+<filter test.test>
+  @type supership-dss-applog
+  prefix_name example
+  timestamp_key timestamp
+</filter>
+```
 
 ## Development
 
