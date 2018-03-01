@@ -14,14 +14,6 @@ Gem::Specification.new do |gem|
   gem.homepage      = "https://github.com/supership-jp/fluent-plugin-supership-dss-applog"
   gem.license       = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if gem.respond_to?(:metadata)
-    gem.metadata['allowed_push_host'] = "http://example.com"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
-
   gem.files         = `git ls-files`.split("\n")
   gem.bindir        = "bin"
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
