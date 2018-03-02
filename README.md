@@ -22,15 +22,27 @@ Or install it yourself as:
 
 ## Usage
 
+This Plugins output text format.
+
+```
+<prefix_name>.<service_name>.<log_type>¥t<timestamp>¥t<record>
+```
+
 ### Filter Plugin
+
+- timestamp_key
+  - Use record key. (default: record time)
 
 ```
 <filter test.test>
   @type supership-dss-applog
-  prefix_name example
-  timestamp_key timestamp
+  prefix_name example (require)
+  service_name abc (require)
+  log_type log (require)
+  timestamp_key timestamp_key (option)
 </filter>
 ```
+
 
 ## Development
 

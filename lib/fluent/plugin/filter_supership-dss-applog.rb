@@ -3,17 +3,23 @@ require 'json'
 
 module Fluent
   class SupershipDssApplogFilter < Filter
-    Fluent::Plugin.register_filter('supership-dss-applog', self)
+    Fluent::Plugin.register_filter('applog', self)
+
+    config_param :prefix_name, :string
+    config_param :service_name, :string
+    config_param :log_type, :string
+    config_param :timestamp_key, :string, default: nil
 
     def configure(conf)
       super
-      @prefix_name = conf['prefix_name']
-      @timestamp_key = conf['timestamp_key']
     end
 
     def filter(tag, time, record)
-      "#{@prefix_name}.#{tag}\t#{record[@timestamp_key]}\t#{record.to_json}\n"
+      "#{@prefix_name}.#{@service_name}.#{@log_type}\t#{timestamp(time, record)}\t#{record.to_json}\n"
+    end
+
+    def timestamp(time, record)
+      @timestamp_key.nil? ? time.sec : record[@timestamp_key]
     end
   end
 end
-
