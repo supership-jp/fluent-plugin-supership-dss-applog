@@ -43,6 +43,22 @@ This Plugins output text format.
 </filter>
 ```
 
+### Output Plugin
+
+- timestamp_key
+  - Use record key. (default: record time)
+
+```
+<match test.test>
+  @type supership-dss-applog
+  new_tag example (require)
+  prefix_name example (require)
+  service_name abc (require)
+  log_type log (require)
+  timestamp_key timestamp_key (option)
+</match>
+```
+
 
 ## Development
 
