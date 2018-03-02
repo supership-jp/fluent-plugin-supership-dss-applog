@@ -19,7 +19,7 @@ module Fluent
     end
 
     def timestamp(time, record)
-      @timestamp_key.nil? ? time.sec : record[@timestamp_key]
+      @timestamp_key.nil? ? time : record[@timestamp_key]
     end
   end
 end
