@@ -3,7 +3,7 @@ require 'json'
 
 module Fluent
   class SupershipDssApplogFilter < Filter
-    Fluent::Plugin.register_filter('applog', self)
+    Fluent::Plugin.register_filter('supership-dss-applog', self)
 
     config_param :prefix_name, :string
     config_param :service_name, :string
