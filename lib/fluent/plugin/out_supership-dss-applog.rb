@@ -5,7 +5,7 @@ module Fluent
   class SupershipDssApplogOutput < Output
     Fluent::Plugin.register_output('supership-dss-applog', self)
 
-    config_param :tag, :string
+    config_param :new_tag, :string
     config_param :prefix_name, :string
     config_param :service_name, :string
     config_param :log_type, :string
