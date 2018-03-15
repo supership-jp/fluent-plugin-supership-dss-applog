@@ -1,4 +1,3 @@
-require 'fluent/plugin/output'
 require 'json'
 
 module Fluent
