@@ -9,6 +9,8 @@ module Fluent
     config_param :service_name, :string
     config_param :log_type, :string
     config_param :timestamp_key, :string, default: nil
+    config_param :add_time, :bool, default: false
+    config_param :add_time_key, :string, default: nil
 
     def configure(conf)
       super
@@ -17,6 +19,7 @@ module Fluent
     def emit(tag, es, chain)
       chain.next
       es.each {|time, record|
+        record['time'] = record['ts'] if @add_time
         new_record = "#{@prefix_name}.#{@service_name}.#{@log_type}\t#{timestamp(time, record)}\t#{record.to_json}\n"
         router.emit(@new_tag, time, new_record)
       }

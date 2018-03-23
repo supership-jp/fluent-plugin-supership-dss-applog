@@ -1,4 +1,3 @@
-require 'fluent/filter'
 require 'json'
 
 module Fluent
