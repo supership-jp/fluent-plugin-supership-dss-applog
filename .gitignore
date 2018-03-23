@@ -11,3 +11,6 @@
 
 # lib
 /vendor
+
+# gem
+fluent-plugin-supership-dss-applog-*.gem

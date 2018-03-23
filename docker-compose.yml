@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  fluentd:
+    build:
+      context: ./
+      dockerfile: Dockerfile.develop
+      network: host
+    volumes:
+      - ./fluentd:/fluentd
+    links:
+      - rubygems-sever:rubygems-sever
+
+  rubygems-sever:
+    image: spoonest/geminabox
+    ports:
+      - "9292:9292"

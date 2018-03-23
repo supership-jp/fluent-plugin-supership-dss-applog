@@ -1,0 +1,9 @@
+FROM fluent/fluentd:v0.12.42
+
+ENV PACKAGES "sudo build-base ruby-dev"
+ENV VERSION "0.0.9"
+
+RUN apk add --update --virtual .build-deps ${PACKAGES}
+ADD lib /fluent-plugin-supership-dss-applog/lib
+RUN sudo gem install --source http://localhost:9292 fluent-plugin-supership-dss-applog -v ${VERSION}
+
