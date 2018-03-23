@@ -84,7 +84,7 @@ loop
 
 ```
 $ gem build ./fluent-plugin-supership-dss-applog.gemspec
-$ gem inabox -o --host http://localhost:9292 fluent-plugin-supership-dss-applog-0.0.9.gem
+$ gem inabox -o --host http://localhost:9292 fluent-plugin-supership-dss-applog-0.0.10.gem
 $ docker-compose stop fluentd
 $ docker-compose rm -f fluentd
 $ docker-compose build fluentd

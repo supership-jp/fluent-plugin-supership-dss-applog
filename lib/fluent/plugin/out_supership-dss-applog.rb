@@ -1,4 +1,5 @@
 require 'json'
+require 'time'
 
 module Fluent
   class SupershipDssApplogOutput < Output
@@ -19,7 +20,8 @@ module Fluent
     def emit(tag, es, chain)
       chain.next
       es.each {|time, record|
-        record['time'] = record['ts'] if @add_time
+        record['time'] = Time.parse(record['ts']).gmtime.iso8601(3) if @add_time
+        p record
         new_record = "#{@prefix_name}.#{@service_name}.#{@log_type}\t#{timestamp(time, record)}\t#{record.to_json}\n"
         router.emit(@new_tag, time, new_record)
       }
